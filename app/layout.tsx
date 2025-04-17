@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "MTN Innovation Lab Formulaire",
-  description: "MTN Innovation Lab Formulaire",
+  title: "We Code Formulaire",
+  description: "We Code Formulaire",
 };
 
 export default function RootLayout({
