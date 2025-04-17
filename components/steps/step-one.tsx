@@ -88,6 +88,7 @@ export function StepOne() {
 
   const [openJury, setOpenJury] = React.useState(false);
   const [openStartup, setOpenStartup] = React.useState(false);
+  const [openProblems, setOpenProblems] = React.useState(false);
 
   const [jurySearch, setJurySearch] = React.useState("");
   const [startupSearch, setStartupSearch] = React.useState("");
@@ -357,7 +358,7 @@ export function StepOne() {
             render={({ field }) => (
               <FormItem className="flex flex-col">
                 <FormLabel>Problématique</FormLabel>
-                <Popover>
+                <Popover open={openProblems} onOpenChange={setOpenProblems}>
                   <PopoverTrigger asChild>
                     <FormControl>
                       <Button
@@ -413,7 +414,7 @@ export function StepOne() {
                             value={problem.id}
                             onSelect={() => {
                               handleProblemChange(problem.id);
-                              setOpenStartup(false);
+                              setOpenProblems(false);
                             }}
                           >
                             <Check
@@ -445,7 +446,7 @@ export function StepOne() {
             name="startup.id"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Startup</FormLabel>
+                <FormLabel>Solution</FormLabel>
                 <Popover open={openStartup} onOpenChange={setOpenStartup}>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -468,10 +469,10 @@ export function StepOne() {
                               return startup ? (
                                 <span className="overflow-hidden text-ellipsis">{`${startup.name}`}</span>
                               ) : (
-                                "Sélectionnez une startup"
+                                "Sélectionnez une solution"
                               );
                             })()
-                          : "Sélectionnez une startup"}
+                          : "Sélectionnez une solution"}
                         {loadingStartups ? (
                           <Loader2 className="animate-spin" />
                         ) : (
@@ -483,7 +484,7 @@ export function StepOne() {
                   <PopoverContent className=" p-0 w-[var(--radix-popover-trigger-width)] overflow-auto">
                     <Command shouldFilter={false}>
                       <CommandInput
-                        placeholder="Rechercher une startup..."
+                        placeholder="Rechercher une solution..."
                         value={startupSearch}
                         onValueChange={setStartupSearch}
                       />
@@ -493,7 +494,7 @@ export function StepOne() {
                             <Loader2 className="animate-spin" />
                           </div>
                         ) : (
-                          "Aucune startup trouvée."
+                          "Aucune solution trouvée."
                         )}
                       </CommandEmpty>
                       <CommandGroup className="max-h-96 overflow-auto">

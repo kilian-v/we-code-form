@@ -86,7 +86,7 @@ const CriteriaForm = ({
           name={`evaluations.${index}.note`}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{`Note( 1 - ${criteria.maxNote} )`}</FormLabel>
+              <FormLabel>{`Note ( 1 - ${criteria.maxNote} )`}</FormLabel>
               <FormControl>
                 <Input
                   type="number"
@@ -98,9 +98,9 @@ const CriteriaForm = ({
                   onChange={(e) => {
                     const value = parseInt(e.target.value);
 
-                    if (value <= criteria.maxNote) {
+                    if (value <= criteria.maxNote || isNaN(value)) {
                       // Update the field
-                      field.onChange(value);
+                      field.onChange(isNaN(value) ? "" : value);
                     }
                   }}
                 />
@@ -302,8 +302,8 @@ export function StepTwo({
                       }),
                     );
                     /*                    dispatch(
-                                                                                                                          updateSection({ data: values, sectionName: section }),
-                                                                                                                        );*/
+                                                                                                                                                                                                                                                  updateSection({ data: values, sectionName: section }),
+                                                                                                                                                                                                                                                );*/
                     dispatch(changeStep(step - 1));
                   }}
                 >

@@ -19,7 +19,7 @@ export default function Home() {
       {/* Content */}
       <div className="relative z-10 container mx-auto py-10 px-4  ">
         <h1 className="text-3xl font-bold mb-8 text-white text-center">
-          {"Formulaire D'Évaluation des Startups"}
+          {"Formulaire D'Évaluation"}
         </h1>
         <MultiStepForm />
       </div>
