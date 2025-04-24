@@ -10,11 +10,19 @@ export const getJury = async ({ filter }: { filter?: any }) => {
   const formatted = databaseJury.map((el: any) => {
     return {
       id: el.id,
-      email: el.properties.Email.email,
-      lastName: el.properties["Prénoms"].rich_text[0].plain_text,
-      fistName: el.properties["Nom"].title[0].plain_text,
-      role: el.properties["Rôle/Missions"].rich_text[0].plain_text,
-      expertise: el.properties.Expertise.rich_text[0].plain_text,
+      email: notionApiHandler.parsePropertyValue(el.properties["Email"]) as any,
+      lastName: notionApiHandler.parsePropertyValue(
+        el.properties["Prénoms"],
+      ) as any,
+      fistName: notionApiHandler.parsePropertyValue(
+        el.properties["Nom"],
+      ) as any,
+      role: notionApiHandler.parsePropertyValue(
+        el.properties["Rôle/Missions"],
+      ) as any,
+      expertise: notionApiHandler.parsePropertyValue(
+        el.properties["Expertise"],
+      ) as any,
     };
   });
   return formatted;
