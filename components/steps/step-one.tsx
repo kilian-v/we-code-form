@@ -43,38 +43,38 @@ const formSchema = z.object({
   jury: z.object({
     id: z
       .string({
-        message: "Please select a jury",
+        message: "Veuillez sélectionner un jury",
       })
-      .min(1, { message: "Please select a jury" }),
+      .min(1, { message: "Veuillez sélectionner un jury" }),
     name: z
       .string({
-        message: "Please select a jury",
+        message: "Veuillez sélectionner un jury",
       })
-      .min(1, { message: "Please select a jury" }),
+      .min(1, { message: "Veuillez sélectionner un jury" }),
   }),
   startup: z.object({
     id: z
       .string({
-        message: "Please select a startup",
+        message: "Veuillez sélectionner une solution",
       })
-      .min(1, { message: "Please select a startup" }),
+      .min(1, { message: "Veuillez sélectionner une solution" }),
     name: z
       .string({
-        message: "Please select a startup",
+        message: "Veuillez sélectionner une solution",
       })
-      .min(1, { message: "Please select a startup" }),
+      .min(1, { message: "Veuillez sélectionner une solution" }),
   }),
   problem: z.object({
     id: z
       .string({
-        message: "Please select a problem",
+        message: "Veuillez sélectionner un problème",
       })
-      .min(1, { message: "Please select a problem" }),
+      .min(1, { message: "Veuillez sélectionner un problème" }),
     name: z
       .string({
-        message: "Please select a problem",
+        message: "Veuillez sélectionner un problème",
       })
-      .min(1, { message: "Please select a problem" }),
+      .min(1, { message: "Veuillez sélectionner un problème" }),
   }),
 });
 

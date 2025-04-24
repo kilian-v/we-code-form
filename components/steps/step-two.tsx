@@ -30,16 +30,16 @@ const criteriaEvaluationSchema = z.object({
     .number()
 
     .min(0, {
-      message: "Rating must be at least 1",
+      message: "Minimum 0",
     })
     .default(0),
   comment: z
     .string()
     .max(500, {
-      message: "Comment must be at most 500 characters",
+      message: "Un commentaire ne peut pas dépasser 500 charactères",
     })
     .refine((val) => val.length === 0 || val.length >= 3, {
-      message: "Comment must be at least 3 characters if not empty",
+      message: "Votre doit avoir au minimum 3 charatères",
     }),
 });
 
@@ -302,8 +302,8 @@ export function StepTwo({
                       }),
                     );
                     /*                    dispatch(
-                                                                                                                                                                                                                                                  updateSection({ data: values, sectionName: section }),
-                                                                                                                                                                                                                                                );*/
+                                                                                                                                                                                                                                                                      updateSection({ data: values, sectionName: section }),
+                                                                                                                                                                                                                                                                    );*/
                     dispatch(changeStep(step - 1));
                   }}
                 >
